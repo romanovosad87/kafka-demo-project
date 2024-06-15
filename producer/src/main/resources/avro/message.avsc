@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "namespace": "com.example",
+  "name": "Message",
+  "version": "3",
+  "fields": [
+    {
+      "name": "ip_address",
+      "type": "string",
+      "doc": "IP Address of the client"
+    },
+    {
+      "name": "sol",
+      "type": "int",
+      "doc": "sol number to look for"
+    },
+    {
+      "name": "full_name",
+      "type": ["null","string"],
+      "default": null, "doc": "name of the sender"
+    }
+  ]
+}

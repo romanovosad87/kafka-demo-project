@@ -1,0 +1,10 @@
+POST localhost:8082/sol
+Content-Type: application/json
+Accept: application/json
+
+{"sol":  15,
+"fullName": "Jun Rao"}
+
+###
+GET localhost:8082/clusterConfig
+Accept: application/json

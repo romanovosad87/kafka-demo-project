@@ -1,0 +1,37 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: producer
+
+# Confluent Kafka Cluster
+  kafka:
+    bootstrap-servers: pkc-l6wr6.europe-west2.gcp.confluent.cloud:9092
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: ${SASL_JAAS_CONFIG}
+
+# Confluent Schema Registry
+      schema.registry.url: https://psrc-571d82.europe-west2.gcp.confluent.cloud
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: ${BASIC_AUTH_USER_INFO}
+
+# Kafka Producer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        enable.idempotence: true
+
+# Kafka topic
+kafka:
+  push:
+    topic: push.largest_picture.sol.avro
+
+logging:
+  level:
+    org:
+      springframework:
+        kafka: TRACE
