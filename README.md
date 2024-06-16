@@ -2,6 +2,8 @@
 
 The aim of this project is to share a method for acquiring new technologies through practice and by building personal projects to gain hands-on experience. The project will be developed using Java with Spring Boot.
 
+You can find a series of articles about the project [here](https://medium.com/@roman.novosad87)
+
 **Topics to Cover:**
 -	Producer API
 -	Consumer API
