@@ -1,10 +1,10 @@
-package com.study.producer;
+package com.study.streams;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 //@SpringBootTest
-class ProducerApplicationTests {
+class StreamsApplicationTests {
 
     @Test
     void contextLoads() {

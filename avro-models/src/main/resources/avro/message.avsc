@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "namespace": "com.example",
   "name": "Message",
-  "version": "3",
+  "namespace": "com.study.avromodels",
+  "version": "1",
   "fields": [
     {
       "name": "ip_address",

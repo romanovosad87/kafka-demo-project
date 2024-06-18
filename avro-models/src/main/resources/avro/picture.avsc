@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "Picture",
+  "namespace": "com.study.avromodels",
+  "version": "1",
+  "fields": [
+    {
+      "name": "sol",
+      "type": "int",
+      "doc": "sol value"
+    },
+    {
+      "name": "full_name",
+      "type": "string",
+      "default": "none",
+      "doc": "name of the sender"
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "doc": "URL of largest picture"
+    },
+    {
+      "name": "size",
+      "type": "long",
+      "doc": "size of largest picture in bytes"
+    },
+    {
+      "name": "ip_address",
+      "type": "string",
+      "doc": "IP address of client"
+    }
+  ]
+}

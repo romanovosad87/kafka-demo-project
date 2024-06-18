@@ -2,5 +2,13 @@ POST localhost:8082/sol
 Content-Type: application/json
 Accept: application/json
 
-{"sol":  15,
-"fullName": "Jun Rao"}
+{"sol":  23,
+"fullName": "Neha Narkhede"}
+
+###
+POST localhost:8082/sol
+Content-Type: application/json
+Accept: application/json
+
+{"sol":  23,
+  "fullName": "Jay Kreps"}
