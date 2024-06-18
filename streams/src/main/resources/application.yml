@@ -1,0 +1,52 @@
+server:
+  port: 0
+
+# Spring Boot Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics
+
+spring:
+  application:
+    name: streams
+
+# Confluent Kafka Cluster
+  kafka:
+    bootstrap-servers: pkc-l6wr6.europe-west2.gcp.confluent.cloud:9092
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: ${SASL_JAAS_CONFIG}
+
+# Confluent Schema Registry
+      schema.registry.url: https://psrc-571d82.europe-west2.gcp.confluent.cloud
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: ${BASIC_AUTH_USER_INFO}
+
+# Kafka Steams
+    streams:
+      application-id: streams-application
+      replication-factor: 3
+      state-dir: C:\Users\PC\Documents\IT\Courses\Kafka\demo-kafka-project\${random.value}
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+        num.standby.replicas: 2
+        processing.guarantee: exactly_once_v2
+
+# Kafka Topics
+kafka:
+  push.sol.topic: push.largest_picture.sol.avro
+  process.picture.topic: streaming.largest_picture.picture.avro
+
+# NASA
+nasa:
+  client:
+     key: ${NASA.KEY}
+     url: https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos
+
+
+
+

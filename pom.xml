@@ -12,6 +12,7 @@
     <groupId>com.study</groupId>
     <artifactId>kafka-demo-project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>kafka-demo-project</name>
     <description>kafka-demo-project</description>
     <properties>
