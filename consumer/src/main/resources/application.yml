@@ -1,0 +1,40 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: consumer
+
+# Confluent Kafka Cluster
+  kafka:
+    bootstrap-servers: pkc-l6wr6.europe-west2.gcp.confluent.cloud:9092
+    properties:
+      security.protocol: SASL_SSL
+      sasl.mechanism: PLAIN
+      sasl.jaas.config: ${SASL_JAAS_CONFIG}
+
+# Confluent Schema Registry
+      schema.registry.url: https://psrc-571d82.europe-west2.gcp.confluent.cloud
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: ${BASIC_AUTH_USER_INFO}
+
+# Kafka Consumer
+    consumer:
+      group-id: picture_consumer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      auto-offset-reset: earliest
+      properties:
+        specific.avro.reader: true
+        isolation.level: read_committed
+        spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        partition.assignment.strategy: org.apache.kafka.clients.consumer.CooperativeStickyAssignor
+
+kafka:
+  process.picture.topic: streaming.largest_picture.picture.avro
+
+logging:
+  level:
+    org:
+      springframework:
+        kafka: DEBUG

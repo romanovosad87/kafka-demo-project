@@ -22,20 +22,25 @@ public class ClusterInfo {
     @SneakyThrows
     @EventListener(ContextRefreshedEvent.class)
     public void getClusterConfigs() {
-        Properties properties = new Properties();
-        properties.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, env.getProperty("spring.kafka.bootstrap-servers"));
-        properties.put(AdminClientConfig.SECURITY_PROTOCOL_CONFIG, env.getProperty("spring.kafka.properties.security.protocol"));
-        properties.put("sasl.mechanism", env.getProperty("spring.kafka.properties.sasl.mechanism"));
-        properties.put("sasl.jaas.config", env.getProperty("spring.kafka.properties.sasl.jaas.config"));
+        Properties properties = getProperties();
 
         try (AdminClient adminClient = AdminClient.create(properties)) {
 
             DescribeClusterResult cluster = adminClient.describeCluster();
-
             log.info("Connected to cluster: {}", cluster.clusterId().get());
             log.info("The brokers in the cluster are:");
             cluster.nodes().get().forEach(node -> log.info(" * {}", node));
             log.info("The controller is: {}", cluster.controller().get());
         }
     }
+
+    private Properties getProperties() {
+        Properties properties = new Properties();
+        properties.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, env.getProperty("spring.kafka.bootstrap-servers"));
+        properties.put(AdminClientConfig.SECURITY_PROTOCOL_CONFIG, env.getProperty("spring.kafka.properties.security.protocol"));
+        properties.put("sasl.mechanism", env.getProperty("spring.kafka.properties.sasl.mechanism"));
+        properties.put("sasl.jaas.config", env.getProperty("spring.kafka.properties.sasl.jaas.config"));
+        return properties;
+    }
+
 }

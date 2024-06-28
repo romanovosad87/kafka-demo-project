@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: consumer
+  kafka:
+
+# Kafka Consumer
+    consumer:
+      group-id: picture_consumer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      auto-offset-reset: earliest
+      properties:
+        specific.avro.reader: true
+        spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+        partition.assignment.strategy: org.apache.kafka.clients.consumer.CooperativeStickyAssignor
+
+# Kafka Producer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        enable.idempotence: true
+kafka:
+  process.picture.topic: streaming.largest_picture.picture.avro
+
+logging:
+  level:
+    org:
+      springframework:
+        kafka: DEBUG
+

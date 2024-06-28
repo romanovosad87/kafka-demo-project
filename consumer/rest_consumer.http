@@ -1,0 +1,2 @@
+GET localhost:65040/internal/pictures
+Accept: application/json
