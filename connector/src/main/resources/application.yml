@@ -1,0 +1,12 @@
+spring:
+  application.name: connector
+
+# MySQL AWS RDS
+  datasource:
+    url: jdbc:mysql://awseb-e-gybg54u5pg-stack-awsebrdsdatabase-mur2y1yg1sce.ctkw0i2iorrd.eu-west-3.rds.amazonaws.com/sol
+    username: admin
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    properties.hibernate.format_sql: true
+    open-in-view: false
