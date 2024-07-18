@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ksqldb
+
+# KSQLDB
+ksqldb:
+  host: pksqlc-k8prpv.europe-west2.gcp.confluent.cloud
+  username: ${KSQLDB_USERNAME}
+  password: ${KSQLDB_PASSWORD}
+
+# Kafka Topic
+kafka:
+  process.picture.topic: streaming.largest_picture.picture.avro

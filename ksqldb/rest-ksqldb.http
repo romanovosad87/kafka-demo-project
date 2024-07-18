@@ -1,0 +1,6 @@
+GET localhost:8080/ksqldb/statistic
+Accept: application/json
+
+###
+GET localhost:8080/ksqldb/statistic/address
+Accept: application/json
