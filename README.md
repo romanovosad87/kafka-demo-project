@@ -9,6 +9,10 @@ You can find a series of articles about the project:
 - [Part 4. Kafka Connectors](https://medium.com/@roman.novosad87/kafka-demo-project-part-4-kafka-connectors-636c20289bdd)
 - [Part 5. ksqlDB](https://medium.com/@roman.novosad87/kafka-demo-project-part-5-ksqldb-84eaf8070334)
 
+Bonus:
+- [My Confluent Certified Developer for Apache Kafka (CCDAK) Journey](https://medium.com/@roman.novosad87/my-confluent-certified-developer-for-apache-kafka-ccdak-journey-0594ee6cb61e)
+
+
 
 **Final Build Structure:**
 
